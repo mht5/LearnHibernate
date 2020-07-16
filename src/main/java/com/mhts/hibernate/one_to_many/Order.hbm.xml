@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.mhts.hibernate.one_to_many.Order" table="t_order">
+		<id name="id" column="id">
+			<generator class="identity" />
+		</id>
+		<property name="price" column="price" />
+		<property name="address" column="address" length="50" />
+		<!-- 多对一 -->
+		<!-- name属性它描述的是Order类中的一的一方的属性名称：Customer c; class属性代表的是一的一方的类型 column属性描述的是一对多，在多的一方产生的外键的名称：c_customer_id -->
+		<!-- cascade="save-update"级联更新 -->
+		<many-to-one name="c" class="com.mhts.hibernate.one_to_many.Customer" column="customer_id" cascade="save-update" />
+	</class>
+</hibernate-mapping>

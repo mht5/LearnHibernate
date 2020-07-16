@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 配置关于数据库连接的四个项：driverClass url username password -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">passw0rd</property>
+		<!-- 用于设置事务提交方式，默认是不自动提交的 -->
+		<property name="hibernate.connection.autocommit">false</property>
+		<!-- 设置session管理方式 -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<!-- 脏读：一个事务读取到另一个事务的未提交数据。
+		不可重复读：一个事务读取到另一个事务提交的数据(主要是指update操作)，会导致两次读取的结果不一致。
+		虚读(幻读)：一个事务读取到另一个事务提交的数据(主要是指insert操作)，会导致两次(也有可能是多次)读取结果不一致。
+		1 READ_UNCOMMITED：读取未提交，它引发所有的隔离问题。
+		2 READ_COMMITTED：读已提交，阻止脏读，可能发生不可重复读与虚读。
+		4 REPEATABLE_READ：重复读，阻止脏读、不可重复读，可能发生虚读。
+		8 SERIALIZABLE：串行化，解决所有问题，但不允许两个事务同时操作一个目标数据。（效率低下） -->
+		<property name="hibernate.connection.isolation">4</property>
+		<!-- 自动创建表 -->
+		<!-- create-drop: 每次都会创建一个新的表，执行完成后就删除 -->
+		<!-- create: 每次都会创建一个新的表，但不删除 -->
+		<!-- update: 如果数据库中有表，不创建，没有表则创建；如果映射不匹配，会自动更新表结构 -->
+		<!-- validate: 只会使用存在的表，并且会对映射关系进行校验 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- 可以将向数据库发送的SQL语句显示出来 -->
+		<property name="hibernate.show_sql">true</property>
+		<!-- 格式化SQL语句 -->
+		<property name="hibernate.format_sql">true</property>
+		<!-- hibernate的方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+
+		<!-- C3P0 -->
+		<!-- <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.timeout">120</property>
+		<property name="automaticTestTable">Test</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<property name="hibernate.c3p0.idle_test_period">120</property>
+		<property name="hibernate.c3p0.acquire_increment">1</property>
+		<property name="c3p0.testConnectionOnCheckout">true</property>
+		<property name="c3p0.idleConnectionTestPeriod">18000</property>
+		<property name="c3p0.maxIdleTime">25000</property>
+		<property name="c3p0.idle_test_period">120</property> -->
+
+		<!-- 配置hibernate的映射文件所在的位置 -->
+		<!-- <mapping resource="com/mhts/hibernate/domain/Customer.hbm.xml" />
+		<mapping resource="com/mhts/hibernate/one_to_many/Customer.hbm.xml" />
+		<mapping resource="com/mhts/hibernate/one_to_many/Order.hbm.xml" /> -->
+		<!-- <mapping class="com.mhts.hibernate.annotation.Book"/>
+		<mapping class="com.mhts.hibernate.annotation.Person"/>
+		<mapping class="com.mhts.hibernate.annotation.Customer"/>
+		<mapping class="com.mhts.hibernate.annotation.Order"/>
+		<mapping class="com.mhts.hibernate.many_to_many.Student"/>
+		<mapping class="com.mhts.hibernate.many_to_many.Teacher"/>
+		<mapping class="com.mhts.hibernate.one_to_one.User"/>
+		<mapping class="com.mhts.hibernate.one_to_one.IDCard"/>
+		<mapping class="com.mhts.hibernate.one_to_one.Husband"/>
+		<mapping class="com.mhts.hibernate.one_to_one.Wife"/> -->
+		<mapping class="com.mhts.hibernate.query.Customer"/>
+		<mapping class="com.mhts.hibernate.query.Order"/>
+	</session-factory>
+</hibernate-configuration>
