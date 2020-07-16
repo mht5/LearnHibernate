@@ -22,7 +22,7 @@
 		<junitVersion>4.12</junitVersion>
 		<lombokVersion>1.18.0</lombokVersion>
 		<c3p0Version>0.9.1.2</c3p0Version>
-		<mysqlVersion>8.0.11</mysqlVersion>
+		<mysqlVersion>8.0.16</mysqlVersion>
 	</properties>
 
   	<dependencies>
