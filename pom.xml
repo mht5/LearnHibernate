@@ -19,7 +19,7 @@
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<hibernateVersion>5.0.7.Final</hibernateVersion>
-		<junitVersion>4.12</junitVersion>
+		<junitVersion>4.13.1</junitVersion>
 		<lombokVersion>1.18.0</lombokVersion>
 		<c3p0Version>0.9.1.2</c3p0Version>
 		<mysqlVersion>8.0.11</mysqlVersion>
