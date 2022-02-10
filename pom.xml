@@ -18,7 +18,7 @@
   
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
-		<hibernateVersion>5.0.7.Final</hibernateVersion>
+		<hibernateVersion>5.4.24.Final</hibernateVersion>
 		<junitVersion>4.12</junitVersion>
 		<lombokVersion>1.18.0</lombokVersion>
 		<c3p0Version>0.9.1.2</c3p0Version>
